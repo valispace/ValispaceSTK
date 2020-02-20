@@ -1,0 +1,370 @@
+﻿<UserControl x:Class="ValispacePlugin.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ValispacePlugin"
+             mc:Ignorable="d" Height="677" Width="1113.9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+
+    <Grid Margin="0,0,22,25">
+        <TextBlock x:Name="ProjectLabel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,39.8,603" Height="22"/>
+
+        <Menu x:Name="MainMenu" HorizontalAlignment="Right" Height="25" VerticalAlignment="Top" Padding="2" Margin="0,0,844,0" Width="258" >
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" Width="250"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="   _Options   ">
+                <MenuItem Header="Project Settings" Click="OpenProjSettings" />
+                <MenuItem Header="Save Data Bindings" Click="SaveBindings"/>
+                <MenuItem Header="Preferences"/>
+            </MenuItem>
+            <MenuItem Header=" _DataSets ">
+                <MenuItem Header="Manage DataSets" Click="openDatasetWin"/>
+            </MenuItem>
+            <MenuItem Header="   _Action   ">
+                <MenuItem Header="Refresh"/>
+            </MenuItem>
+            <MenuItem Header="   _Help   ">
+                <MenuItem Header="Version"/>
+            </MenuItem>
+        </Menu>
+        <TabControl HorizontalAlignment="Left" Height="630" Margin="0,30,0,0" VerticalAlignment="Top" Width="1079" Background="#FFEDEDED">
+            <TabItem Header="Attributes" Margin="-2,-2,-53.4,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="Silver" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid x:Name="StackPanelInput" Margin="0,-8,-3,-16" Background="#FFE0DEDE" >
+
+
+                    <Rectangle HorizontalAlignment="Left" Height="62" Margin="467,526,0,0" Stroke="DarkGray"   VerticalAlignment="Top" Width="242"/>
+                    <Rectangle HorizontalAlignment="Left" Height="62" Margin="207,526,0,0" Stroke="DarkGray"   VerticalAlignment="Top" Width="239"/>
+
+
+                    <DockPanel x:Name="InputGroup2" Margin="10,46,11,28.8">
+                        <DataGrid x:Name="STKDataXAML" Height="458" Width="775" VirtualizingPanel.IsVirtualizing="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,79.2" >
+                            <DataGrid.Resources>
+                                <ContextMenu  x:Key="AttributeRowContextMenu" >
+                                    <MenuItem x:Name="BindingReassign"  Header="Assign/Reassign" PreviewMouseLeftButtonDown="BindingReassign_Click"/>
+                                    <MenuItem x:Name="RowDelete"  Header="Delete Binding" PreviewMouseLeftButtonDown="BindingDelete_Click"/>
+                                </ContextMenu>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                    <Setter Property="Padding" Value="2"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Style>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Setter Property="ContextMenu" Value="{StaticResource AttributeRowContextMenu}" />
+                                    
+                                    <EventSetter Event="Control.MouseDoubleClick" Handler="DataGridRow_PreviewMouseDoubleClick"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding isBold}" Value="1">
+                                            <Setter Property="Background" Value="SlateGray"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="2">
+                                            <Setter Property="Background" Value="LightGray"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="3">
+                                            <Setter Property="Background" Value="Gainsboro"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="4">
+                                            <Setter Property="Background" Value="Gainsboro"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="5">
+                                            <Setter Property="Background" Value="Gainsboro"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <Style TargetType="{x:Type DataGridCell}">
+                                    <!--  <<<< Get it Checked with Tiago >>>> -->
+                                    <Style.Triggers>
+                                        <!-- Base Child -->
+                                        <DataTrigger Binding="{Binding isBold}" Value="0">
+                                            <Setter Property ="Margin" Value="0,0,0,0" />
+                                        </DataTrigger>
+                                        <!-- (Super) Parent Component -->
+                                        <DataTrigger Binding="{Binding isBold}" Value="1">
+                                            <Setter Property ="Margin" Value="0,0,0,0" />
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                        </DataTrigger>
+                                        <!-- SubComponent-->
+                                        <DataTrigger Binding="{Binding isBold}" Value = "2">
+                                            <Setter Property ="Margin" Value="10,0,0,0" />
+                                            <Setter Property="FontWeight" Value="DemiBold" />
+                                        </DataTrigger>
+                                        <!-- SubsubComponent-->
+                                        <DataTrigger Binding="{Binding isBold}" Value = "3">
+                                            <Setter Property ="Margin" Value="15,0,0,0" />
+                                            <Setter Property="FontWeight" Value="DemiBold" />
+                                        </DataTrigger>
+                                        <!-- SubsubComponent-->
+                                        <DataTrigger Binding="{Binding isBold}" Value = "4">
+                                            <Setter Property ="Margin" Value="20,0,0,0" />
+                                            <Setter Property="FontWeight" Value="Medium" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value = "5">
+                                            <Setter Property ="Margin" Value="20,0,0,0" />
+                                            <Setter Property="FontWeight" Value="Normal" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                                <Style TargetType="{x:Type CheckBox}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding isBold}" Value="1">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="2">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="3">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="4">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding isBold}" Value="5">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.Resources>
+                            
+                            <!--<DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <EventSetter Event="PreviewMouseDoubleClick" Handler="DataGridCell_PreviewMouseDoubleClick"/>
+                    </Style>
+                </DataGrid.CellStyle>-->
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox x:Name="CheckBoxSelect" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header=" STK Objects/Attributes" Binding="{Binding VarName}" Foreground="Black" Width="0.5*" IsReadOnly="True"/>
+                                <DataGridTextColumn x:Name="ValueColumn" Header="   Value" Binding="{Binding VarValue}"  Foreground="Black" Width="0.6*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header=" Unit" Binding="{Binding VarUnit}" Foreground="Black" Width="0.3*" IsReadOnly="True"/>
+                                <DataGridTextColumn x:Name="ValiName" Header="Binded Valis" Foreground="Black" Width="0.7*" IsReadOnly="True" />
+                                <DataGridTextColumn x:Name="ValiValue" Header="   Value"  Foreground="Black" Width="0.5*" IsReadOnly="True"/>
+                                <DataGridTextColumn x:Name="ValiUnit" Header="Unit" Foreground="Black" Width="0.3*" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid Margin="0,0,0,-13" Width="305">
+                            <!--<TreeView x:Name="projectTree" Margin="15,13,26,107"></TreeView>-->
+                            <TreeView x:Name="projectTree" Margin="15,13,26,107" Background="LightGray" SelectedItemChanged="ProjectTree_SelectedItemChanged">
+                                <TreeView.Resources>
+                                    <HierarchicalDataTemplate DataType="{x:Type local:Component}" ItemsSource="{Binding Items}">
+                                        <StackPanel IsEnabled="False">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="Resources/component.png" Margin ="5,0,5,0" Height="15" Width="15" VerticalAlignment="Top" />
+                                                <TextBlock Text="{Binding Name}"  FontSize="12" FontWeight="Bold"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                    <DataTemplate DataType="{x:Type local:Vali}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="Resources/vali.png" Margin ="5,0,5,0" Height="10" Width="10" VerticalAlignment="Top" />
+                                            <TextBlock Text="{Binding Name}" Foreground="Blue"  />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </TreeView.Resources>
+                                <TreeView.ItemContainerStyle>
+                                    <Style TargetType="{x:Type TreeViewItem}">
+                                        <EventSetter Event="UIElement.PreviewMouseLeftButtonDown" Handler="TreeViewItem_MouseDoubleClick"/>
+                                    </Style>
+                                </TreeView.ItemContainerStyle>
+                            </TreeView>
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="8,483,26,10">
+                                <TextBlock x:Name="StatusBox" TextWrapping="Wrap" Text="" Background="#FFDCDBDB"/>
+                            </Border>
+                            <Label Content="Status:" HorizontalAlignment="Left" Margin="8,457,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+
+
+                    </DockPanel>
+
+                    <Button x:Name="RefreshButton" Content="Refresh Valispace Data" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="134"  Height="20" Margin="797,0,0,574.8" Click="Refresh_Click"/>
+                    <Label Content="Valispace Project Browser:" HorizontalAlignment="Left" Margin="792,0,0,0" VerticalAlignment="Top" Width="144" Height="27"/>
+                    <Button Content="Update Valispace Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="288,557,0,0" Height="25" Click="ValispaceUpdate"/>
+                    <Button Content="Update STK Scenario " HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="567,558,0,0" Height="25" Click="UpdateSTK_Click"/>
+                    <Button x:Name="SelectValiButton" IsEnabled="False" Content="Select" HorizontalAlignment="Left" Margin="980,472,0,0" VerticalAlignment="Top" Width="76" Click="SelectButton_Click"/>
+                    <Button x:Name="CancelSelectButton" IsEnabled="False" Content="Cancel" HorizontalAlignment="Left" Margin="881,472,0,0" VerticalAlignment="Top" Width="76" Click="CancelButton_Click"/>
+                    <Label Content="Update Selected from Valispace to STK" HorizontalAlignment="Left" Margin="467,528,0,0" VerticalAlignment="Top" Width="205" FontSize="10.5"/>
+                    <Label Content="Update Selected from STK to Valispace" HorizontalAlignment="Left" Margin="207,528,0,0" VerticalAlignment="Top" Width="206" FontSize="11"/>
+                    <TextBlock x:Name="LoadProject_Msg" Text="Please Load a project from Project Settings &#xD;&#xA;or press Refresh to load the existing project." VerticalAlignment="Top" Height="52" Width="262" FontStyle="Italic" Margin="816,283,11,0"/>
+                    <StackPanel Orientation="Vertical" Margin="5,537,900,38">
+
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Rectangle Width="27" Margin="10,0,0,0" Fill="Yellow"/>
+                            <TextBlock  Margin="20,0,40,0" TextWrapping="Wrap" Text="Values not in sync"  Width="125" FontSize="11"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Rectangle Width="27" Margin="10,0,0,0" Fill="IndianRed"/>
+                            <TextBlock  Margin="20,0,40,0" TextWrapping="Wrap" Text="Incompatible Units"  Width="125" FontSize="11"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Label Content="Binding Color Status" HorizontalAlignment="Left" Margin="8,518,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="RefreshSTK" Content="Refresh STK Data" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="146"  Height="20" Margin="633,0,0,574.8" Click="RefreshSTK_Click"/>
+                    <Button Content="SelectUnsync" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="17,31,0,0" Click="selectUnsynced"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Datasets" Margin="52,-1,-113.2,-0.8">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFCECDCD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+
+
+                <Grid HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="902" Margin="0,20,0,0">
+
+                    <TreeView Name="DPTree"  IsEnabled="False" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="228" Margin="10,24,0,0">
+                        <TreeView.Resources>
+                            <Style TargetType="{x:Type TreeViewItem}">
+                                <Setter Property="HeaderTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="Resources/component.png" Margin ="5,0,5,0" Height="15" Width="15" VerticalAlignment="Top" />
+                                                <TextBlock Text="{Binding}"  FontSize="12" FontWeight="SemiBold"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TreeView.Resources>
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="{x:Type TreeViewItem}">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="STKDP_PreviewMouseLeftButtonDown"/>
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+
+
+                    </TreeView>
+                    <Label Content="STK Data Providers" HorizontalAlignment="Left" Margin="10,-7,0,0" VerticalAlignment="Top" Width="135"/>
+                    <TextBlock Name="STKDP_Count" HorizontalAlignment="Left" Margin="121,5,0,0" VerticalAlignment="Top" Width="137" Height="19"></TextBlock>
+                    <TreeView x:Name="valiTree_XAML" IsEnabled="False"  HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="229" Margin="252,24,0,0">
+                        <TreeView.Resources>
+                            <Style TargetType="{x:Type TreeViewItem}">
+                                <Setter Property="HeaderTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" PreviewMouseLeftButtonDown="STKDP_PreviewMouseLeftButtonDown">
+                                                <!--<Image Source="Resources/component.png" Margin ="5,0,5,0" Height="15" Width="15" VerticalAlignment="Top" />-->
+                                                <TextBlock Text="{Binding}"  FontSize="12" FontWeight="SemiBold"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TreeView.Resources>
+                        <!--<TreeView.ItemContainerStyle>
+                            <Style TargetType="{x:Type TreeViewItem}">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="STKDP_PreviewMouseLeftButtonDown"/>
+                            </Style>
+                        </TreeView.ItemContainerStyle>-->
+
+                    </TreeView>
+                    <Label Content="Valispace Datasets" HorizontalAlignment="Left" Margin="263,-8,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Grid x:Name="MidPanel_Grid" Margin="52,53,78,-28">
+
+                        <TextBox x:Name="STKDP_Col1" IsEnabled="False" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="32,391,0,0" TextWrapping="Wrap" Text="Time (default)" VerticalAlignment="Top" Width="110"/>
+                        <Label Content="Column 1:" HorizontalAlignment="Left" Margin="-34,391,0,0" VerticalAlignment="Top" Width="62"/>
+                        <TextBox x:Name="STKDP_Col2" IsEnabled ="False" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="32,418,0,0" TextWrapping="Wrap" Text="Select..." VerticalAlignment="Top" Width="110"/>
+                        <Label Content="Column 2:" HorizontalAlignment="Left" Margin="-34,416,0,0" VerticalAlignment="Top" Width="62"/>
+                        <Label Content="Choose STK DataSet:" HorizontalAlignment="Left" Margin="-44,366,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Button Content="..." HorizontalAlignment="Left" Margin="148,418,0,0" VerticalAlignment="Top" Width="20" Height="22" Click="DPColumn2_Click" />
+                        <RadioButton Content="Use Object Time" IsChecked="True" HorizontalAlignment="Left" Margin="213,343,0,0" VerticalAlignment="Top" Width="116" Checked="UseObjectTime_Click"/>
+                        <RadioButton Content="Specify Interval" IsChecked="False" HorizontalAlignment="Left" Margin="213,366,0,0" VerticalAlignment="Top" Checked="SpecifyTime_Click"/>
+                        <TextBox Name ="StartTimeBoxXAML" IsReadOnly="True" HorizontalAlignment="Left" IsEnabled="False" Height="23" Margin="235,396,0,0" TextWrapping="Wrap" Text="Scenario.StartTime" VerticalAlignment="Top" Width="186"/>
+                        <Label Content="Start:" HorizontalAlignment="Left" Margin="193,393,0,0" VerticalAlignment="Top" Width="62"/>
+                        <TextBox Name="StopTimeBoxXAML" IsReadOnly="True" HorizontalAlignment="Left" IsEnabled="False" Height="23" Margin="235,424,0,0" TextWrapping="Wrap" Text="Scenario.StopTime" VerticalAlignment="Top" Width="186"/>
+                        <Label Content="Stop:" HorizontalAlignment="Left" Margin="195,424,0,0" VerticalAlignment="Top" Width="62"/>
+                        <TextBox Name="StepBoxXAML" IsReadOnly="False" HorizontalAlignment="Left" Height="23" Margin="369,361,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="52"/>
+                        <Label Content="Step (sec):" HorizontalAlignment="Left" Margin="361,337,0,0" VerticalAlignment="Top" Width="66" RenderTransformOrigin="0.5,0.5"/>
+                        <Label Content="Choose Valispace DataSet" HorizontalAlignment="Left" Margin="-44,445,0,-13" VerticalAlignment="Top" Width="172"/>
+                        <Button Content="..." HorizontalAlignment="Left" Margin="148,476,0,-39" VerticalAlignment="Top" Width="20" Height="21" Click="valispaceSelect_click"/>
+                        <TextBox Name="valispace_DataSet"  IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="-28,476,0,-41" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" TextChanged="Valispace_DataSet_TextChanged"/>
+                        <Button Content="Bind Datasets" HorizontalAlignment="Left" Margin="213,491,0,-53" VerticalAlignment="Top" Width="199" Click="Bind_Click"/>
+                        <Label Content="Choose STK Object:" HorizontalAlignment="Left" Margin="-44,319,0,0" VerticalAlignment="Top" Width="135"/>
+                        <ComboBox Name="ChildrenDropdown" ItemsSource="{Binding ChildrenNameSTK}"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Margin="-28,346,0,0" Height="20"/>
+
+                    </Grid>
+
+
+                    <DataGrid x:Name="DSBindingGridXAML" Height="501"  Width="554" AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizing="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="508,10,-160,-28" >
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="LightGray"/>
+                                <Setter Property="BorderThickness" Value="1,1,1,1"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                                <Setter Property="Padding" Value="2"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                            <ContextMenu  x:Key="DatasetRowContextMenu" >
+                                <MenuItem x:Name="RowContDelete"  Header="Delete Binding" Click="RowContDelete_Click"/>
+                                <MenuItem x:Name="RowContMenuProp"  Header="Properties" Click="DatasetBindProp_Show"/>
+                            </ContextMenu>
+                        </DataGrid.Resources>
+                        <DataGrid.RowStyle >
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Setter Property="ContextMenu" Value="{StaticResource DatasetRowContextMenu}" />
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+
+                        <!--<DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <EventSetter Event="PreviewMouseDoubleClick" Handler="DataGridCell_PreviewMouseDoubleClick"/>
+                            </Style>
+                        </DataGrid.CellStyle>-->
+
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="CheckBoxSelect" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Binding ID" Binding="{Binding bindID}" Foreground="Black" Width="0.3*" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="DSCol1" Header=" Column1" Binding="{Binding StkDP_Col1}"  Foreground="Black" Width="0.5*" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="DSCol2" Header=" Column2" Binding="{Binding DP2_FullName}" Foreground="Black" Width="0.5*" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="ValiDataset" Binding="{Binding valiDataset}" Header="Valispace Dataset" Foreground="Black" Width="0.7*" IsReadOnly="True" />
+                            <!--<DataGridTemplateColumn Header="Edit" Width="0.2*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Edit" Click="editBinding_Click"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+
+                            <DataGridTemplateColumn Header="Delete" Width="0.2*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Delete" Click="deleteBinding_Click"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>-->
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="GenerateUpdateBtn" Content="Generate and Update" HorizontalAlignment="Left" Margin="890,516,-160,-55" VerticalAlignment="Top" Width="172" Height="22" Click="GenUpd_Btn_click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

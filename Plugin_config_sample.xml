@@ -1,0 +1,13 @@
+﻿<?xml version = "1.0"?>
+<AGIRegistry version = "1.0">
+  <CategoryRegistry>
+    <Category Name = "UiPlugins">
+      <NETUiPlugin
+               DisplayName="Valispace Integration Plugin"
+               TypeName="ValispacePlugin.MySampleUiPlugin"
+               AssemblyName="ValispacePlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+               CodeBase="C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\bin\Debug">
+      </NETUiPlugin>
+    </Category>
+  </CategoryRegistry>
+</AGIRegistry>

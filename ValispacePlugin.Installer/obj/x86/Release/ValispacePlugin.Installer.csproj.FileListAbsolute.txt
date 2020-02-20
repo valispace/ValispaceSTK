@@ -1,0 +1,11 @@
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\bin\Release\ValispacePlugin.Installer.exe.config
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\bin\Release\ValispacePlugin.Installer.exe
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\bin\Release\ValispacePlugin.Installer.pdb
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.g.resources
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.InstallForm.resources
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.SetupForm.resources
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.Properties.Resources.resources
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.csproj.GenerateResource.cache
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.exe
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.pdb
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin.Installer\obj\x86\Release\ValispacePlugin.Installer.csprojAssemblyReference.cache
