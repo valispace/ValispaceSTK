@@ -16,7 +16,7 @@ namespace ValispacePlugin
     public partial class CustomUserControl : UserControl, IAgUiPluginEmbeddedControl
     {
         private IAgUiPluginEmbeddedControlSite m_pEmbeddedControlSite;
-        private MySampleUIPlugin m_uiplugin;
+        private UIPlugin m_uiplugin;
         private AgStkObjectRoot m_root;
 
 
@@ -41,7 +41,7 @@ namespace ValispacePlugin
         public void SetSite(IAgUiPluginEmbeddedControlSite Site)
         {
             m_pEmbeddedControlSite = Site;
-            m_uiplugin = m_pEmbeddedControlSite.Plugin as MySampleUIPlugin;
+            m_uiplugin = m_pEmbeddedControlSite.Plugin as UIPlugin;
             m_root = m_uiplugin.STKRoot;
             this.mainWindow1.InitProjnFile(Site);
             //this.mainWindow1.loadAll(Site);

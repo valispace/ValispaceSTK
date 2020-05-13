@@ -476,7 +476,7 @@ namespace ValispacePlugin
         public windowDatasets(IAgStkObject scenario, Dictionary<int, List<string>> objTimes, ValispaceInstance valispace, TextBox StartTime, TextBox StopTime, TreeView DPTree, TreeView ValiDSTree)
         {
             /// Change this to UI selection
-            m_objIndexInSTK = 1; // First object selected by default
+            m_objIndexInSTK = 0; // First object selected by default
             m_selectedObject = scenario.Children[m_objIndexInSTK];
 
             m_objTimes = objTimes;

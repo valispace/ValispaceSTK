@@ -55,7 +55,7 @@ namespace ValispacePlugin.Installer
                     int pos1 = setup.IndexOf("\r", pos);
                     string namespaceString = setup.Substring(pos, pos1 - pos);
                     txtAssemblyName.Text = namespaceString;
-                    txtTypeName.Text = namespaceString + "." + "MySampleUIPlugin";
+                    txtTypeName.Text = namespaceString + "." + "UIPlugin";
                 }
 
 

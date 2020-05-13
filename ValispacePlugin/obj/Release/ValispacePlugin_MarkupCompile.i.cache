@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\apoca\source\repos\ValispacePlugin\obj\Release\
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\
 ValispacePlugin
 none
 false
@@ -12,9 +12,9 @@ TRACE
 
 4864160127
 21326554613
-18-348435351
-146-1893360266
+241406649417
+149-175471738
 Login.xaml;MainWindow.xaml;ProjWindow.xaml;WPFLogin.xaml;
 
-True
+False
 

@@ -8,7 +8,7 @@
 
 
     <Grid Margin="0,0,22,25">
-        <TextBlock x:Name="ProjectLabel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,39.8,603" Height="22"/>
+        <TextBlock x:Name="ProjectLabel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,41.6,612.8" Height="22"/>
 
         <Menu x:Name="MainMenu" HorizontalAlignment="Right" Height="25" VerticalAlignment="Top" Padding="2" Margin="0,0,844,0" Width="258" >
             <Menu.ItemsPanel>

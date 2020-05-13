@@ -13,7 +13,6 @@ C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\bin\Rele
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\bin\Release\Newtonsoft.Json.xml
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\bin\Release\System.Security.Cryptography.ProtectedData.xml
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\bin\Release\ValiPluginLib.pdb
-C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\ValispacePlugin.csprojAssemblyReference.cache
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\ValispacePlugin.csproj.ResolveComReference.cache
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\Login.g.cs
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\MainWindow.g.cs
@@ -33,3 +32,4 @@ C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Rele
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\ValispacePlugin.csproj.CopyComplete
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\ValispacePlugin.dll
 C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\ValispacePlugin.pdb
+C:\Users\apoca\source\repos\PluginReleasePackageProject\ValispacePlugin\obj\Release\ValispacePlugin.csprojAssemblyReference.cache

@@ -9,7 +9,7 @@
       <Value Profile="(Default)">Valispace Integration Plugin</Value>
     </Setting>
     <Setting Name="TypeName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ValispacePlugin.MySampleUIPlugin</Value>
+      <Value Profile="(Default)">ValispacePlugin.UIPlugin</Value>
     </Setting>
   </Settings>
 </SettingsFile>

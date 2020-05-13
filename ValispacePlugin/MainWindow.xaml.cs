@@ -28,7 +28,7 @@ namespace ValispacePlugin
     public partial class MainWindow : UserControl
     {
         private IAgUiPluginEmbeddedControlSite m_pEmbeddedControlSite;
-        private MySampleUIPlugin m_uiplugin;
+        private UIPlugin m_uiplugin;
         private AgStkObjectRoot m_root ;
 
         private IAgStkObject Scenario;
@@ -82,7 +82,7 @@ namespace ValispacePlugin
         public void SetSite(IAgUiPluginEmbeddedControlSite Site)
         {
             m_pEmbeddedControlSite = Site;
-            m_uiplugin = m_pEmbeddedControlSite.Plugin as MySampleUIPlugin;
+            m_uiplugin = m_pEmbeddedControlSite.Plugin as UIPlugin;
             m_root = m_uiplugin.STKRoot;
         }
 

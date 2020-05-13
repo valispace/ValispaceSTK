@@ -16,10 +16,10 @@ using AGI.STKObjects;
 namespace ValispacePlugin
 {
     [Guid("338772FA-F62E-4AE6-9224-624C5B2BA833")]
-    [ProgId("Valispace.MySampleUIPlugin")]
+    [ProgId("Valispace.UIPlugin")]
     [ClassInterface(ClassInterfaceType.None)]
 
-    public class MySampleUIPlugin: IAgUiPlugin, IAgUiPluginCommandTarget
+    public class UIPlugin: IAgUiPlugin, IAgUiPluginCommandTarget
     {
         private IAgUiPluginSite m_psite;
         private AgStkObjectRoot m_root;
@@ -51,19 +51,19 @@ namespace ValispacePlugin
 
         //public void OnDisplayContextMenu(IAgUiPluginMenuBuilder MenuBuilder)
         //{
-        //    MenuBuilder.AddMenuItem("MyCompany.MySampleUIPlugin.MySecondCommand", "Valispace", " Display a message box.", null);
+        //    MenuBuilder.AddMenuItem("MyCompany.UIPlugin.MySecondCommand", "Valispace", " Display a message box.", null);
         //}
 
         public void OnInitializeToolbar(IAgUiPluginToolbarBuilder ToolbarBuilder)
         {
-            ToolbarBuilder.AddButton("Valispace.MySampleUIPlugin.LoginCommand", "Valispace Login  |", "Valispace Plugin", AgEToolBarButtonOptions.eToolBarButtonOptionAlwaysOn, null);
-            ToolbarBuilder.AddButton("Valispace.MySampleUIPlugin.OpenUICommand", "Ui Plugin ", "Valispace Plugin", AgEToolBarButtonOptions.eToolBarButtonOptionAlwaysOn, null);
+            ToolbarBuilder.AddButton("Valispace.UIPlugin.LoginCommand", "Valispace Login  |", "Valispace Plugin", AgEToolBarButtonOptions.eToolBarButtonOptionAlwaysOn, null);
+            ToolbarBuilder.AddButton("Valispace.UIPlugin.OpenUICommand", "Ui Plugin ", "Valispace Plugin", AgEToolBarButtonOptions.eToolBarButtonOptionAlwaysOn, null);
         }
 
 
         public void Exec(string CommandName, IAgProgressTrackCancel TrackCancel, IAgUiPluginCommandParameters Parameters)
         {
-            if (string.Compare(CommandName, "Valispace.MySampleUIPlugin.OpenUICommand", true) == 0)
+            if (string.Compare(CommandName, "Valispace.UIPlugin.OpenUICommand", true) == 0)
             {
                 if (WPFLogin.valispace != null)
                 { OpenUserInterface(); }
@@ -71,7 +71,7 @@ namespace ValispacePlugin
                 { MessageBox.Show("Please Login to Valispace first using the 'Valispace Login' button"); }
                 
             }
-            else if (string.Compare(CommandName, "Valispace.MySampleUIPlugin.LoginCommand", true) == 0)
+            else if (string.Compare(CommandName, "Valispace.UIPlugin.LoginCommand", true) == 0)
             {
                  OpenLoginUI(); 
             }
@@ -103,11 +103,11 @@ namespace ValispacePlugin
 
         public AgEUiPluginCommandState QueryState(string CommandName)
         {
-            if (string.Compare(CommandName, "Valispace.MySampleUIPlugin.LoginCommand", true) == 0)
+            if (string.Compare(CommandName, "Valispace.UIPlugin.LoginCommand", true) == 0)
             {
                 return AgEUiPluginCommandState.eUiPluginCommandStateEnabled | AgEUiPluginCommandState.eUiPluginCommandStateSupported;
             }
-            else if (string.Compare(CommandName, "Valispace.MySampleUIPlugin.OpenUICommand", true) == 0)
+            else if (string.Compare(CommandName, "Valispace.UIPlugin.OpenUICommand", true) == 0)
             {
                 return AgEUiPluginCommandState.eUiPluginCommandStateEnabled | AgEUiPluginCommandState.eUiPluginCommandStateSupported;
             }

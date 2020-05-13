@@ -43,7 +43,7 @@ namespace ValispacePlugin.Installer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ValispacePlugin.MySampleUIPlugin")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ValispacePlugin.UIPlugin")]
         public string TypeName {
             get {
                 return ((string)(this["TypeName"]));

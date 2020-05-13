@@ -16,7 +16,7 @@ namespace ValispacePlugin
     public partial class LoginUserControl : UserControl, IAgUiPluginEmbeddedControl
     {
         private IAgUiPluginEmbeddedControlSite m_pEmbeddedControlSite;
-        private MySampleUIPlugin m_uiplugin;
+        private UIPlugin m_uiplugin;
         private AgStkObjectRoot m_root;
 
         public LoginUserControl()
@@ -34,7 +34,7 @@ namespace ValispacePlugin
         public void SetSite(IAgUiPluginEmbeddedControlSite Site)
         {
             m_pEmbeddedControlSite = Site;
-            m_uiplugin = m_pEmbeddedControlSite.Plugin as MySampleUIPlugin;
+            m_uiplugin = m_pEmbeddedControlSite.Plugin as UIPlugin;
             m_root = m_uiplugin.STKRoot;
             wpfLogin1.InitProjnFile(Site);
             
